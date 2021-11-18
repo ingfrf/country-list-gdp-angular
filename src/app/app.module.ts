@@ -7,6 +7,7 @@ import { CountryListComponent } from './components/country-list/country-list.com
 import { CountryDetailComponent } from './components/country-detail/country-detail.component';
 import { NewCityComponent } from './components/new-city/new-city.component';
 import { NewLanguageComponent } from './components/new-language/new-language.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NewLanguageComponent } from './components/new-language/new-language.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
