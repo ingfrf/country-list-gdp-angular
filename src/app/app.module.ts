@@ -8,6 +8,7 @@ import { CountryDetailComponent } from './components/country-detail/country-deta
 import { NewCityComponent } from './components/new-city/new-city.component';
 import { NewLanguageComponent } from './components/new-language/new-language.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

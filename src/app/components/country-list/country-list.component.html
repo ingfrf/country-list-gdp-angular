@@ -1,4 +1,15 @@
-<i class="fa fa-times fa-2x"></i>
-<i class="fa fa-sync fa-spin fa-2x"></i>
-<i class="fas fa-khanda"></i>
-<p>country-list works!</p>
+<form [formGroup]="searchForm">
+  <div class="row" style="background-color: transparent">
+    <div class="d-flex justify-content-center mt-2">
+      <div class="col-6 mt-2">
+        <div class="input-group mb-3">
+          <span class="fs-4 me-2">Countries:</span>
+          <input class="form-control" type="search" placeholder="Search by name" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
