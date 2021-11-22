@@ -21,4 +21,7 @@ export class CountryListComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    console.log(this.searchForm);
+  }
 }

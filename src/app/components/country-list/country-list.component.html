@@ -1,10 +1,11 @@
-<form [formGroup]="searchForm">
-  <div class="row" style="background-color: transparent">
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <div class="row">
     <div class="d-flex justify-content-center mt-2">
       <div class="col-6 mt-2">
         <div class="input-group mb-3">
           <label class="fs-4 me-2">Countries:</label>
-          <input class="form-control" type="search" placeholder="Search by name" aria-label="Search">
+          <input id="name" formControlName="name"
+                 class="form-control" type="search" placeholder="Search by name" aria-label="Search">
           <div class="input-group-append">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </div>
@@ -12,16 +13,16 @@
       </div>
     </div>
   </div>
-  <div class="row mt-2" style="background-color: transparent">
+  <div class="row mt-2">
     <div class="col-6">
       <label class="fs-4 me-2">Continent:</label>
-      <select class="form-select">
+      <select id="continent" formControlName="continent" class="form-select">
         <option selected>Chose...</option>
       </select>
     </div>
     <div class="col-6">
       <label class="fs-4 me-2">Region:</label>
-      <select class="form-select">
+      <select id="region" formControlName="region" class="form-select">
         <option selected>Chose...</option>
       </select>
     </div>
