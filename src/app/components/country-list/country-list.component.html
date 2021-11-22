@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-center mt-2">
       <div class="col-6 mt-2">
         <div class="input-group mb-3">
-          <span class="fs-4 me-2">Countries:</span>
+          <label class="fs-4 me-2">Countries:</label>
           <input class="form-control" type="search" placeholder="Search by name" aria-label="Search">
           <div class="input-group-append">
             <button class="btn btn-outline-success" type="submit">Search</button>
@@ -11,5 +11,35 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="row mt-2" style="background-color: transparent">
+    <div class="col-6">
+      <label class="fs-4 me-2">Continent:</label>
+      <select class="form-select">
+        <option selected>Chose...</option>
+      </select>
+    </div>
+    <div class="col-6">
+      <label class="fs-4 me-2">Region:</label>
+      <select class="form-select">
+        <option selected>Chose...</option>
+      </select>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Continent</th>
+          <th>Region</th>
+          <th>Area</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
   </div>
 </form>
