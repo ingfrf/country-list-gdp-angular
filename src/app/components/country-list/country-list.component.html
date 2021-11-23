@@ -17,7 +17,8 @@
     <div class="col-6">
       <label class="fs-4 me-2">Continent:</label>
       <select id="continent" formControlName="continent" class="form-select">
-        <option selected>Chose...</option>
+        <option selected>All</option>
+        <option *ngFor="let continent of continents">{{continent}}</option>
       </select>
     </div>
     <div class="col-6">
