@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {CountriesResponseModel} from '../models/countries-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +13,18 @@ export class CountryService {
   }
 
   getAllRegions() {
-    return this.httpClient.get(`${this.url}/regions`);
+    return this.httpClient.get<string[]>(`${this.url}/regions`);
   }
 
   getAllContinents() {
     return this.httpClient.get<string[]>(`${this.url}/continents`);
-      /*.subscribe(
-        response => console.log(response),
-        error => console.error(error)
-      );*/
+  }
+
+  getAllCountries(page: number) {
+    return this.httpClient.get<CountriesResponseModel>(`${this.url}/countries?page=${page}`);
+    /*.subscribe(
+       response => console.log(response),
+       error => console.error(error)
+     );*/
   }
 }

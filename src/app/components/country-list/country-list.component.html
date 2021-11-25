@@ -24,7 +24,8 @@
     <div class="col-6">
       <label class="fs-4 me-2">Region:</label>
       <select id="region" formControlName="region" class="form-select">
-        <option selected>Chose...</option>
+        <option selected>All</option>
+        <option *ngFor="let region of regions">{{region}}</option>
       </select>
     </div>
   </div>
@@ -40,8 +41,21 @@
         </tr>
       </thead>
       <tbody>
-
+        <tr *ngFor="let country of countries">
+          <td>{{country.code}}</td>
+          <td>{{country.name}}</td>
+          <td>{{country.continent}}</td>
+          <td>{{country.region}}</td>
+          <td>{{country.surfaceArea}}</td>
+        </tr>
       </tbody>
     </table>
+  </div>
+  <div *ngIf="countries.length > 0" class="row mt-4 justify-content-center">
+    <ngb-pagination [collectionSize]="total"
+                    [(page)]="pageNumber"
+                    [pageSize]="pageSize"
+                    (pageChange)="findCountries()">
+    </ngb-pagination>
   </div>
 </form>
