@@ -13,7 +13,7 @@ export class CountriesEffect {
       ofType(LOAD_COUNTRIES)
     ).pipe(
       switchMap((action: LoadCountries) => {
-        return this.countryService.getAllCountries(action.page)
+        return this.countryService.getAllCountries(action.request)
           .pipe(
             map(countries => new LoadCountriesSuccess(countries)),
             catchError(err => of(new LoadCountriesFail(err)))

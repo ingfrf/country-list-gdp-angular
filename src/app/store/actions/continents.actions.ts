@@ -6,6 +6,8 @@ export const LOAD_CONTINENTS_SUCCESS = '[CONTINENTS] Load continents success';
 
 export class LoadContinents implements Action {
   readonly type = LOAD_CONTINENTS;
+  constructor(public region: string) {
+  }
 }
 
 export class LoadContinentsFail implements Action {

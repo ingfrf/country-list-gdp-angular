@@ -3,7 +3,7 @@ import {Actions, Effect, ofType} from '@ngrx/effects';
 import {CountryService} from '../../services/country.service';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
-import {LOAD_REGIONS, LoadRegionsFail, LoadRegionsSuccess} from '../actions/regions.actions';
+import {LOAD_REGIONS, LoadRegions, LoadRegionsFail, LoadRegionsSuccess} from '../actions/regions.actions';
 
 @Injectable()
 export class RegionsEffect {
@@ -15,8 +15,8 @@ export class RegionsEffect {
     .pipe(
       ofType(LOAD_REGIONS)
     ).pipe(
-      switchMap(() => {
-        return this.countryService.getAllRegions()
+      switchMap((actions: LoadRegions) => {
+        return this.countryService.getRegions(actions.continent)
           .pipe(
             map(regions => new LoadRegionsSuccess(regions)),
             catchError(error => of(new LoadRegionsFail(error)))

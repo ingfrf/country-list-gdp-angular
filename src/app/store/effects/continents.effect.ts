@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Actions, Effect, ofType} from '@ngrx/effects';
 import {CountryService} from '../../services/country.service';
-import {LOAD_CONTINENTS, LoadContinentsFail, LoadContinentsSuccess} from '../actions/continents.actions';
+import {LOAD_CONTINENTS, LoadContinents, LoadContinentsFail, LoadContinentsSuccess} from '../actions/continents.actions';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
 
@@ -15,8 +15,8 @@ export class ContinentsEffect {
     .pipe(
       ofType(LOAD_CONTINENTS)
     ).pipe(
-      switchMap(() => {
-        return this.countryService.getAllContinents()
+      switchMap((action: LoadContinents) => {
+        return this.countryService.getContinents(action.region)
           .pipe(
             map(continents => new LoadContinentsSuccess(continents)),
             catchError(error => of(new LoadContinentsFail(error)))
