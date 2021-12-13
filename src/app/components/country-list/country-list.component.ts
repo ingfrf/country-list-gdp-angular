@@ -28,14 +28,6 @@ export class CountryListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // request initialization
-    this.request = {
-      page: 0,
-      name: null,
-      continent: null,
-      region: null
-    };
-
     this.store.select('continents')
       .subscribe(params => {
         this.continents = params.continents;
@@ -46,22 +38,14 @@ export class CountryListComponent implements OnInit {
       });
     this.store.select('countries')
       .subscribe(params => {
-        if (params.countries) {
-          this.countries = params.countries.content;
-          this.total = params.countries.totalElements;
-          this.pageNumber = params.countries.number + 1;
-          this.pageSize = params.countries.size;
-        } else {
-          this.countries = [];
-          this.total = 0;
-          this.pageNumber = 0;
-          this.pageSize = 0;
-        }
+        this.countries = params.countries && params.countries.content || [];
+        this.total = params.countries && params.countries.totalElements || 0;
+        this.pageNumber = params.countries && params.countries.number + 1 || 0;
+        this.pageSize = params.countries && params.countries.size || 0;
       });
+
     // never forget to dispatch
-    this.store.dispatch(new LoadContinents('All'));
-    this.store.dispatch(new LoadRegions('All'));
-    this.store.dispatch(new LoadCountries(this.request));
+    this.initialLoad();
 
     this.searchForm = new FormGroup({
       name: new FormControl(null),
@@ -80,6 +64,26 @@ export class CountryListComponent implements OnInit {
     };
     console.log('--> ' + JSON.stringify(this.request));
     this.store.dispatch(new LoadCountries(this.request));
+  }
+
+  initialLoad() {
+    // request initialization
+    const initialRequest = {
+      page: 0,
+      name: null,
+      continent: null,
+      region: null
+    };
+    // array exists and is not empty
+    if (!Array.isArray(this.continents) || !this.continents.length) {
+      this.store.dispatch(new LoadContinents('All'));
+    }
+    if (!Array.isArray(this.regions) || !this.regions.length) {
+      this.store.dispatch(new LoadRegions('All'));
+    }
+    if (!Array.isArray(this.regions) || !this.regions.length) {
+      this.store.dispatch(new LoadCountries(initialRequest));
+    }
   }
 
   findCountries() {
