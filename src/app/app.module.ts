@@ -15,7 +15,7 @@ import {appReducers} from './store/app.reducers';
 import {environment} from '../environments/environment';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {EffectsModule} from '@ngrx/effects';
-import {effectsArr} from './store/effects';
+import {effectsArr} from './store/country-list/effects';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({

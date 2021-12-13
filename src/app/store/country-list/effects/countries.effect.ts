@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Actions, Effect, ofType} from '@ngrx/effects';
-import {CountryService} from '../../services/country.service';
+import {CountryService} from '../../../services/country.service';
 import {LOAD_COUNTRIES, LoadCountries, LoadCountriesFail, LoadCountriesSuccess} from '../actions/countries.actions';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';

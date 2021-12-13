@@ -1,5 +1,5 @@
 import {countriesActions, LOAD_COUNTRIES, LOAD_COUNTRIES_FAIL, LOAD_COUNTRIES_SUCCESS} from '../actions/countries.actions';
-import {CountriesResponseModel} from '../../models/countries-response.model';
+import {CountriesResponseModel} from '../../../models/countries-response.model';
 
 export interface CountriesState {
   countries: CountriesResponseModel;

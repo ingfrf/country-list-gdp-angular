@@ -1,7 +1,7 @@
 import {ActionReducerMap} from '@ngrx/store';
-import {regionsReducer, RegionsState} from './reducers/regions.reducer';
-import {continentsReducer, ContinentsState} from './reducers/continents.reducer';
-import {countriesReducer, CountriesState} from './reducers/countries.reducer';
+import {regionsReducer, RegionsState} from './country-list/reducers/regions.reducer';
+import {continentsReducer, ContinentsState} from './country-list/reducers/continents.reducer';
+import {countriesReducer, CountriesState} from './country-list/reducers/countries.reducer';
 
 export interface AppState {
   regions: RegionsState;

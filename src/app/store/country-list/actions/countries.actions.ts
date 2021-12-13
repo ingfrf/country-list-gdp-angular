@@ -1,6 +1,6 @@
 import {Action} from '@ngrx/store';
-import {CountriesResponseModel} from '../../models/countries-response.model';
-import {CountriesRequestModel} from '../../models/countries-request.model';
+import {CountriesResponseModel} from '../../../models/countries-response.model';
+import {CountriesRequestModel} from '../../../models/countries-request.model';
 
 export const LOAD_COUNTRIES = '[COUNTRIES] Load countries';
 export const LOAD_COUNTRIES_FAIL = '[COUNTRIES] Load countries fail';

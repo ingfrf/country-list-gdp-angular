@@ -38,15 +38,23 @@
           <th>Continent</th>
           <th>Region</th>
           <th>Area</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let country of countries">
+        <tr *ngFor="let country of countries" class="align-middle">
           <td>{{country.code}}</td>
           <td>{{country.name}}</td>
           <td>{{country.continent}}</td>
           <td>{{country.region}}</td>
-          <td>{{country.surfaceArea}}</td>
+          <td>{{country.surfaceArea}} km<sup>2</sup></td>
+          <td>
+            <button type="button"
+                    class="btn btn-info btn-sm"
+                    (click)="onEdit()">
+              Edit
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>

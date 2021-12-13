@@ -2,11 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {AppState} from '../../store/app.reducers';
 import {Store} from '@ngrx/store';
-import {LoadContinents} from '../../store/actions/continents.actions';
-import {LoadRegions} from '../../store/actions/regions.actions';
-import {LoadCountries} from '../../store/actions/countries.actions';
+import {LoadContinents} from '../../store/country-list/actions/continents.actions';
+import {LoadRegions} from '../../store/country-list/actions/regions.actions';
+import {LoadCountries} from '../../store/country-list/actions/countries.actions';
 import {CountryModel} from '../../models/countries-response.model';
 import {CountriesRequestModel} from '../../models/countries-request.model';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class CountryListComponent implements OnInit {
   pageSize: number;
   request: CountriesRequestModel;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -124,5 +125,9 @@ export class CountryListComponent implements OnInit {
     }
     const regionSelected = this.searchForm.get('region').value;
     this.store.dispatch(new LoadContinents(regionSelected));
+  }
+
+  onEdit() {
+    this.router.navigate(['/detail']);
   }
 }
