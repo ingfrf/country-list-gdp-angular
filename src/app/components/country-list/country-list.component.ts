@@ -8,6 +8,9 @@ import {LoadCountries} from '../../store/country-list/actions/countries.actions'
 import {CountryModel} from '../../models/countries-response.model';
 import {CountriesRequestModel} from '../../models/countries-request.model';
 import {Router} from '@angular/router';
+import {LoadCountryDetail} from '../../store/country-detail/actions/country-detail.actions';
+import {LoadLanguageDetail} from '../../store/country-detail/actions/language-detail.actions';
+import {LoadCitiesDetail} from '../../store/country-detail/actions/cities-detail.actions';
 
 
 @Component({
@@ -127,7 +130,11 @@ export class CountryListComponent implements OnInit {
     this.store.dispatch(new LoadContinents(regionSelected));
   }
 
-  onEdit() {
+  onEdit(code: string) {
+    const countrySelected = this.countries.find(country => country.code === code);
+    this.store.dispatch(new LoadCountryDetail(countrySelected));
+    this.store.dispatch(new LoadLanguageDetail(countrySelected.code));
+    this.store.dispatch(new LoadCitiesDetail(countrySelected.code));
     this.router.navigate(['/detail']);
   }
 }

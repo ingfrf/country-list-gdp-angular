@@ -15,8 +15,10 @@ import {appReducers} from './store/app.reducers';
 import {environment} from '../environments/environment';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {EffectsModule} from '@ngrx/effects';
-import {effectsArr} from './store/country-list/effects';
+import {effectsArr} from './store/effects-index';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {CityListComponent} from './components/city-list/city-list.component';
+import {LanguageListComponent} from './components/language-list/language-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     CountryListComponent,
     CountryDetailComponent,
     NewCityComponent,
-    NewLanguageComponent
+    NewLanguageComponent,
+    CityListComponent,
+    LanguageListComponent
   ],
   imports: [
     BrowserModule,
@@ -43,4 +47,5 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

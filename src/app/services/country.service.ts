@@ -2,13 +2,14 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CountriesResponseModel} from '../models/countries-response.model';
 import {CountriesRequestModel} from '../models/countries-request.model';
+import {serviceUrl} from './service-constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountryService {
 
-  private url = `http://localhost:9090/gdp/api`;
+  private url = serviceUrl;
 
   constructor(private httpClient: HttpClient) {
   }

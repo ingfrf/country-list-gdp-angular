@@ -1,1 +1,117 @@
-<p>country-detail works!</p>
+<div class="row">
+  <div class="col-10">
+    <span class="fs-1">{{country.name}}({{country.code}}/{{country.code2}})</span>
+  </div>
+  <div class="col-2 my-auto d-flex flex-row-reverse">
+    <button type="button" class="btn btn-info">
+      <fa-icon [icon]="editIcon"></fa-icon>
+      Edit
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-4">
+    <img
+      [src]=flagUrl
+      (error)="getDefaultFlag($event)"
+    >
+  </div>
+  <div class="col-8">
+    <div class="row row-cols-4">
+      <div class="col">
+        <span class="fw-bold">Capital</span>
+      </div>
+      <div class="col">
+        <span>kapital</span>
+      </div>
+      <div class="col">
+        <span class="fw-bold">Local Name</span>
+      </div>
+      <div class="col">
+        <span>{{country.localName}}</span>
+      </div>
+    </div>
+    <div class="row row-cols-4">
+      <div class="col">
+        <span class="fw-bold">Continent</span>
+      </div>
+      <div class="col">
+        <span>{{country.continent}}</span>
+      </div>
+      <div class="col">
+        <span class="fw-bold">Independence</span>
+      </div>
+      <div class="col">
+        <span>{{country.indepYear}}</span>
+      </div>
+    </div>
+    <div class="row row-cols-4">
+      <div class="col">
+        <span class="fw-bold">Region</span>
+      </div>
+      <div class="col">
+        <span>{{country.region}}</span>
+      </div>
+      <div class="col">
+        <span class="fw-bold">Surface Area</span>
+      </div>
+      <div class="col">
+        <span>{{country.surfaceArea}}</span>
+      </div>
+    </div>
+    <div class="row row-cols-4">
+      <div class="col">
+        <span class="fw-bold">Head of State</span>
+      </div>
+      <div class="col">
+        <span>{{country.headOfState}}</span>
+      </div>
+      <div class="col">
+        <span class="fw-bold">Population</span>
+      </div>
+      <div class="col">
+        <span>{{country.population}}</span>
+      </div>
+    </div>
+    <div class="row row-cols-4">
+      <div class="col">
+        <span class="fw-bold">Government</span>
+      </div>
+      <div class="col">
+        <span>{{country.govermentForm}}</span>
+      </div>
+      <div class="col">
+        <span class="fw-bold">Life Expectancy</span>
+      </div>
+      <div class="col">
+        <span>{{country.lifeExpectancy}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col-3">
+    <div class="d-flex">
+      <h3 class="fw-bold  flex-grow-1">Cities</h3>
+      <div class="">
+        <button type="button" class="btn btn-info">
+          <fa-icon [icon]="plusIcon"></fa-icon>
+          New
+        </button>
+      </div>
+    </div>
+    <app-city-list *ngFor="let polis of cities" [city]="polis"></app-city-list>
+  </div>
+  <div class="col-3">
+    <div class="d-flex">
+      <h3 class="fw-bold  flex-grow-1">Languages</h3>
+      <div class="">
+        <button type="button" class="btn btn-info">
+          <fa-icon [icon]="plusIcon"></fa-icon>
+          New
+        </button>
+      </div>
+    </div>
+    <app-language-list *ngFor="let lang of languages" [language]="lang"></app-language-list>
+  </div>
+</div>

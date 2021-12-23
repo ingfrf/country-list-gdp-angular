@@ -17,6 +17,13 @@ export interface CountryModel {
   continent: string;
   region: string;
   surfaceArea: number;
+  headOfState: string;
+  govermentForm: string;
+  localName: string;
+  indepYear: number;
+  population: number;
+  lifeExpectancy: number;
+  code2: string;
 }
 
 export interface Sort {
